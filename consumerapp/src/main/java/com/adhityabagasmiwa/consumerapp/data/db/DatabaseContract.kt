@@ -1,4 +1,4 @@
-package com.adhityabagasmiwa.learn_database_sqlite.data.db
+package com.adhityabagasmiwa.consumerapp.data.db
 
 import android.net.Uri
 import android.provider.BaseColumns

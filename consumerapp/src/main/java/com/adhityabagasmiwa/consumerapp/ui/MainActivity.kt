@@ -1,4 +1,4 @@
-package com.adhityabagasmiwa.learn_database_sqlite.ui
+package com.adhityabagasmiwa.consumerapp.ui
 
 import android.content.Intent
 import android.database.ContentObserver
@@ -8,12 +8,11 @@ import android.os.Handler
 import android.os.HandlerThread
 import android.view.View
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.adhityabagasmiwa.learn_database_sqlite.data.adapter.NoteAdapter
-import com.adhityabagasmiwa.learn_database_sqlite.data.db.DatabaseContract.NoteColumns.Companion.CONTENT_URI
-import com.adhityabagasmiwa.learn_database_sqlite.data.db.NoteHelper
-import com.adhityabagasmiwa.learn_database_sqlite.data.helper.MappingHelper
-import com.adhityabagasmiwa.learn_database_sqlite.data.model.Note
-import com.adhityabagasmiwa.learn_database_sqlite.databinding.ActivityMainBinding
+import com.adhityabagasmiwa.consumerapp.data.adapter.NoteAdapter
+import com.adhityabagasmiwa.consumerapp.data.db.DatabaseContract.NoteColumns.Companion.CONTENT_URI
+import com.adhityabagasmiwa.consumerapp.data.helper.MappingHelper
+import com.adhityabagasmiwa.consumerapp.data.model.Note
+import com.adhityabagasmiwa.consumerapp.databinding.ActivityMainBinding
 import com.google.android.material.snackbar.Snackbar
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.GlobalScope
@@ -34,7 +33,7 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        supportActionBar?.title = "Notes"
+        supportActionBar?.title = "Consumer Notes App"
 
         binding.rvNotes.layoutManager = LinearLayoutManager(this)
         binding.rvNotes.setHasFixedSize(true)
@@ -75,6 +74,8 @@ class MainActivity : AppCompatActivity() {
                 // CONTENT URI
                 val cursor = contentResolver.query(CONTENT_URI, null, null, null, null)
                 MappingHelper.mapCursorToArrayList(cursor)
+                /*val cursor = noteHelper.queryAll()
+                MappingHelper.mapCursorToArrayList(cursor)*/
             }
             val notes = deferredNotes.await()
             binding.progressBar.visibility = View.INVISIBLE
@@ -130,6 +131,7 @@ class MainActivity : AppCompatActivity() {
             }
         }
     }
+
 
     private fun showSnackbarMessage(message: String) {
         Snackbar.make(binding.rvNotes, message, Snackbar.LENGTH_SHORT).show()

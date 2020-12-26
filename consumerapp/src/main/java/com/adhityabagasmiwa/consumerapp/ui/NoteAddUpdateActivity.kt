@@ -1,4 +1,4 @@
-package com.adhityabagasmiwa.learn_database_sqlite.ui
+package com.adhityabagasmiwa.consumerapp.ui
 
 import android.content.ContentValues
 import android.content.Intent
@@ -10,15 +10,14 @@ import android.view.MenuItem
 import android.view.View
 import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
-import com.adhityabagasmiwa.learn_database_sqlite.R
-import com.adhityabagasmiwa.learn_database_sqlite.data.db.DatabaseContract.NoteColumns.Companion.CONTENT_URI
-import com.adhityabagasmiwa.learn_database_sqlite.data.db.DatabaseContract.NoteColumns.Companion.DATE
-import com.adhityabagasmiwa.learn_database_sqlite.data.db.DatabaseContract.NoteColumns.Companion.DESCRIPTION
-import com.adhityabagasmiwa.learn_database_sqlite.data.db.DatabaseContract.NoteColumns.Companion.TITLE
-import com.adhityabagasmiwa.learn_database_sqlite.data.db.NoteHelper
-import com.adhityabagasmiwa.learn_database_sqlite.data.helper.MappingHelper
-import com.adhityabagasmiwa.learn_database_sqlite.data.model.Note
-import com.adhityabagasmiwa.learn_database_sqlite.databinding.ActivityNoteAddUpdateBinding
+import com.adhityabagasmiwa.consumerapp.R
+import com.adhityabagasmiwa.consumerapp.data.db.DatabaseContract.NoteColumns.Companion.CONTENT_URI
+import com.adhityabagasmiwa.consumerapp.data.db.DatabaseContract.NoteColumns.Companion.DATE
+import com.adhityabagasmiwa.consumerapp.data.db.DatabaseContract.NoteColumns.Companion.DESCRIPTION
+import com.adhityabagasmiwa.consumerapp.data.db.DatabaseContract.NoteColumns.Companion.TITLE
+import com.adhityabagasmiwa.consumerapp.data.helper.MappingHelper
+import com.adhityabagasmiwa.consumerapp.data.model.Note
+import com.adhityabagasmiwa.consumerapp.databinding.ActivityNoteAddUpdateBinding
 import java.text.SimpleDateFormat
 import java.util.*
 
@@ -111,6 +110,7 @@ class NoteAddUpdateActivity : AppCompatActivity(), View.OnClickListener {
             values.put(DESCRIPTION, desc)
 
             if (isEdit) {
+
                 contentResolver.update(uriWithId, values, null, null)
                 Toast.makeText(this, "Satu item berhasil diedit", Toast.LENGTH_SHORT).show()
                 finish()

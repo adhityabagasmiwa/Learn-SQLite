@@ -1,8 +1,8 @@
-package com.adhityabagasmiwa.learn_database_sqlite.data.helper
+package com.adhityabagasmiwa.consumerapp.data.helper
 
 import android.database.Cursor
-import com.adhityabagasmiwa.learn_database_sqlite.data.db.DatabaseContract
-import com.adhityabagasmiwa.learn_database_sqlite.data.model.Note
+import com.adhityabagasmiwa.consumerapp.data.db.DatabaseContract
+import com.adhityabagasmiwa.consumerapp.data.model.Note
 
 object MappingHelper {
 
